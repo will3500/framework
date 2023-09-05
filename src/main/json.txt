@@ -1,0 +1,12 @@
+post: postar nota
+http://localhost:8080/tasks
+{
+    "description": "Completar o projeto da API",
+    "completed": false
+}
+
+post: completar tarefa
+http://localhost:8080/tasks/{Index}/complete
+
+get:
+http://localhost:8080/tasks
