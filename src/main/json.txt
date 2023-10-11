@@ -1,9 +1,10 @@
 post: postar nota
 http://localhost:8080/tasks
 {
-    "description": "Completar o projeto da API",
+    "description": "Completar o projeto da API#",
     "completed": false,
-    "tag": "tag"
+    "tag": "exemplo",
+    "priority": 1
 }
 
 post: completar tarefa

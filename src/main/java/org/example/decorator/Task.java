@@ -1,15 +1,13 @@
-package org.example;
+package org.example.decorator;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.example.decorator.TaskDecorator;
 
-public class Task implements TaskDecorator {
+public class Task implements ITask {
     private String description;
     private boolean completed;
 
 
-    public Task( String description) {
+    public Task(String description) {
         this.description = description;
         this.completed = false;
     }

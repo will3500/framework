@@ -1,17 +1,18 @@
 package org.example.decorator;
 
-public class TagDecorator implements ITask {
+public class PriorityDecorator implements ITask {
     private ITask task;
-    private String tag;
+    private Integer priority;
 
-    public TagDecorator(ITask task, String tag) {
+    public PriorityDecorator(ITask task, Integer priority) {
         this.task = task;
-        this.tag = tag;
+        this.priority = priority;
     }
 
     @Override
     public String getDescription() {
-        return task.getDescription() + " #TAG:" + tag;
+
+        return task.getDescription() + " #priority:" + priority;
     }
 
     @Override
