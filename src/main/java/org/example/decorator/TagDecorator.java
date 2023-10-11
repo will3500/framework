@@ -1,5 +1,6 @@
 package org.example.decorator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.example.Task;
 
 public class TagDecorator implements TaskDecorator {
@@ -16,5 +17,21 @@ public class TagDecorator implements TaskDecorator {
         return task.getDescription() + " !" + tag;
     }
 
+    @Override
+    public boolean isCompleted() {
+        return task.isCompleted();
+    }
 
+    @Override
+    public void markCompleted() {
+        task.markCompleted();
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
 }

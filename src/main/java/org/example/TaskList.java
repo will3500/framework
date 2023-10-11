@@ -1,11 +1,13 @@
 package org.example;
 
+import org.example.decorator.TaskDecorator;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class TaskList {
     private static TaskList instance;
-    private List<TaskRequest> tasks;
+    private List<TaskDecorator> tasks;
 
     private TaskList() {
         tasks = new ArrayList<>();
@@ -18,11 +20,11 @@ public class TaskList {
         return instance;
     }
 
-    public List<TaskRequest> getTasks() {
+    public List<TaskDecorator> getTasks() {
         return tasks;
     }
 
-    public void addTask(TaskRequest task) {
+    public void addTask(TaskDecorator task) {
         tasks.add(task);
     }
 }
