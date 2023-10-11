@@ -5,7 +5,7 @@ import java.util.List;
 
 public class TaskList {
     private static TaskList instance;
-    private List<Task> tasks;
+    private List<TaskRequest> tasks;
 
     private TaskList() {
         tasks = new ArrayList<>();
@@ -18,11 +18,11 @@ public class TaskList {
         return instance;
     }
 
-    public List<Task> getTasks() {
+    public List<TaskRequest> getTasks() {
         return tasks;
     }
 
-    public void addTask(Task task) {
+    public void addTask(TaskRequest task) {
         tasks.add(task);
     }
 }

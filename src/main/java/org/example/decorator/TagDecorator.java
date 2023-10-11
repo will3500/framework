@@ -15,4 +15,6 @@ public class TagDecorator implements TaskDecorator {
     public String getDescription() {
         return task.getDescription() + " !" + tag;
     }
+
+
 }

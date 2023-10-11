@@ -10,22 +10,23 @@ public class TaskController {
     private TaskList taskList = TaskList.getInstance();
 
     @GetMapping
-    public List<Task> getTasks() {
+    public List<TaskRequest> getTasks() {
         return taskList.getTasks();
     }
 
     @PostMapping
-    public void addTask(@RequestBody Task task) {
-        taskList.addTask(task);
+    public void addTask(@RequestBody TaskRequest taskReq) {
+        TaskRequest taskR = new TaskRequest(taskReq.getDescription(),taskReq.getTag());
+        taskList.addTask(taskR);
     }
 
     @PostMapping("/{index}/complete")
     public void markTaskAsCompleted(@PathVariable int index) {
-        List<Task> tasks = taskList.getTasks();
+        List<TaskRequest> tasks = taskList.getTasks();
         if (index >= 0 && index < tasks.size()) {
-            Task task = tasks.get(index);
-            task.markCompleted();
-            // Aqui você pode notificar os observadores sobre a conclusão da tarefa.
+            TaskRequest taskRequest = tasks.get(index);
+            taskRequest.getTask().markCompleted();
+
         }
     }
 }

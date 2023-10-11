@@ -7,13 +7,11 @@ import org.example.decorator.TaskDecorator;
 public class Task implements TaskDecorator {
     private String description;
     private boolean completed;
-    private String tag;
 
-    @JsonCreator
-    public Task(@JsonProperty("description") String description, @JsonProperty("tag") String tag) {
+
+    public Task(String description) {
         this.description = description;
         this.completed = false;
-        this.tag = tag;
     }
 
     @Override
@@ -21,16 +19,7 @@ public class Task implements TaskDecorator {
         return description;
     }
 
-    public String getTag(){
-        if (tag != null && !tag.isEmpty()) {
-            return  tag;
-        }
-        return null;
-    }
-    public void setTag(String tag) {
 
-        this.tag = tag;
-    }
     public boolean isCompleted() {
         return completed;
     }
