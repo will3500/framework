@@ -1,18 +1,28 @@
 package org.example;
 
-//classe onde o body do json sera construido
-public class TaskRequest {
+public class TaskResponseItem {
     private String description;
-    private int priority;
     private String tag;
+    private int priority;
+    private boolean completed;
+
+    public TaskResponseItem(String description, String tag, int priority, boolean completed) {
+        this.description = description;
+        this.tag = tag;
+        this.priority = priority;
+        this.completed = completed;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
 
     public String getDescription() {
-        if(description.contains("#")){
-            description = description.replaceAll("\\#","x");
-            return description;
-        }
         return description;
-
     }
 
     public void setDescription(String description) {

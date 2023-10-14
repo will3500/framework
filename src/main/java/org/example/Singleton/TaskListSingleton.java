@@ -1,21 +1,21 @@
-package org.example;
+package org.example.Singleton;
 
 import org.example.decorator.ITask;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaskList {
-    private static TaskList instance;
+public class TaskListSingleton {
+    private static TaskListSingleton instance;
     private List<ITask> tasks;
 
-    private TaskList() {
+    private TaskListSingleton() {
         tasks = new ArrayList<>();
     }
 
-    public static TaskList getInstance() {
+    public static TaskListSingleton getInstance() {
         if (instance == null) {
-            instance = new TaskList();
+            instance = new TaskListSingleton();
         }
         return instance;
     }
