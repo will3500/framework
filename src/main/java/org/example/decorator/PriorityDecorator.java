@@ -1,27 +1,27 @@
 package org.example.decorator;
 
-public class PriorityDecorator implements ITask {
+public class PriorityDecorator extends TaskDecorator {
     private ITask task;
     private Integer priority;
 
     public PriorityDecorator(ITask task, Integer priority) {
-        this.task = task;
+        super(task);
         this.priority = priority;
     }
 
     @Override
     public String getDescription() {
 
-        return task.getDescription() + " #priority:" + priority;
+        return super.getDescription() + " #priority:" + priority;
     }
 
     @Override
     public boolean isCompleted() {
-        return task.isCompleted();
+        return super.isCompleted();
     }
 
     @Override
     public void markCompleted() {
-        task.markCompleted();
+        super.markCompleted();
     }
 }

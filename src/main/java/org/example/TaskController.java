@@ -1,10 +1,7 @@
 package org.example;
 
 import org.example.Singleton.TaskListSingleton;
-import org.example.decorator.PriorityDecorator;
-import org.example.decorator.TagDecorator;
-import org.example.decorator.ITask;
-import org.example.decorator.Task;
+import org.example.decorator.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,10 +21,13 @@ public class TaskController {
         ITask task = new Task(taskRequest.getDescription());
         if (taskRequest.getTag() != null && !taskRequest.getTag().isEmpty()) {
             task = new TagDecorator(task, taskRequest.getTag());
+
         }
         if (taskRequest.getPriority() != 0 ) {
-            task = new PriorityDecorator(task, taskRequest.getPriority()); // Adiciona a prioridade à tarefa, se existir
+            task = new PriorityDecorator(task, taskRequest.getPriority());
+
         }
+
         taskListSingleton.addTask(task);
     }
 

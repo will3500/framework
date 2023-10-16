@@ -1,24 +1,24 @@
 package org.example.decorator;
 
 public class TaskDecorator implements ITask {
-    private ITask task;
+    private ITask itask;
 
-    TaskDecorator(ITask task) {
-        this.task = task;
+    public TaskDecorator(ITask task) {
+        itask = task;
     }
 
     @Override
     public String getDescription() {
-        return task.getDescription();
+        return itask.getDescription();
     }
 
     @Override
     public boolean isCompleted() {
-        return task.isCompleted();
+        return itask.isCompleted();
     }
 
     @Override
     public void markCompleted() {
-        task.markCompleted();
+        itask.markCompleted();
     }
 }

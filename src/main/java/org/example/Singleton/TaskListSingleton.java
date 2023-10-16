@@ -1,6 +1,7 @@
 package org.example.Singleton;
 
 import org.example.decorator.ITask;
+import org.example.decorator.TaskDecorator;
 
 import java.util.ArrayList;
 import java.util.List;
